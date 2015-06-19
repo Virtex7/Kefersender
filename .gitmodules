@@ -1,0 +1,3 @@
+[submodule "FMBerry"]
+	path = FMBerry
+	url = https://github.com/Manawyrm/FMBerry.git
