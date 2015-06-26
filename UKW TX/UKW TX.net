@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "/home/philipp/Dokumente/dev/Kefersender/UKW TX/UKW TX.sch")
-    (date "Fr 26 Jun 2015 22:57:23 CEST")
+    (date "Sa 27 Jun 2015 00:08:46 CEST")
     (tool "Eeschema (2015-06-20 BZR 5796)-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -196,6 +196,7 @@
       (tstamp 558D8E04))
     (comp (ref CON1)
       (value BARREL_JACK)
+      (footprint lpis2812:LUM1503)
       (libsource (lib conn) (part BARREL_JACK))
       (sheetpath (names /) (tstamps /))
       (tstamp 558D9455))
@@ -266,6 +267,76 @@
       (sheetpath (names /) (tstamps /))
       (tstamp 558DD7D4)))
   (libparts
+    (libpart (lib sma_edge) (part SMA_EDGE)
+      (fields
+        (field (name Reference) SMA_E)
+        (field (name Value) SMA_EDGE))
+      (pins
+        (pin (num 0) (name GND) (type passive))
+        (pin (num 1) (name SIGNAL) (type passive))
+        (pin (num 2) (name GND) (type passive))))
+    (libpart (lib ths9001) (part THS9001)
+      (fields
+        (field (name Reference) U)
+        (field (name Value) THS9001))
+      (pins
+        (pin (num 1) (name IF) (type input))
+        (pin (num 2) (name GND) (type power_in))
+        (pin (num 3) (name Vs) (type passive))
+        (pin (num 4) (name Lcol) (type passive))
+        (pin (num 5) (name IFout) (type output))
+        (pin (num 6) (name BIAS) (type input))))
+    (libpart (lib alps_603a) (part Alps_603A)
+      (fields
+        (field (name Reference) U)
+        (field (name Value) Alps_603A))
+      (pins
+        (pin (num 1) (name GND) (type power_in))
+        (pin (num 2) (name FM_Out) (type output))
+        (pin (num 3) (name GND) (type power_in))
+        (pin (num 4) (name GND) (type power_in))
+        (pin (num 5) (name GND) (type power_in))
+        (pin (num 6) (name AVcc) (type power_in))
+        (pin (num 7) (name GND) (type power_in))
+        (pin (num 8) (name GND) (type power_in))
+        (pin (num 9) (name VEX) (type power_in))
+        (pin (num 10) (name GND) (type power_in))
+        (pin (num 11) (name GND) (type power_in))
+        (pin (num 12) (name GND) (type power_in))
+        (pin (num 13) (name Data) (type input))
+        (pin (num 14) (name Clk) (type input))
+        (pin (num 15) (name Address) (type input))
+        (pin (num 16) (name RDS_Int) (type output))
+        (pin (num 17) (name F192) (type input))
+        (pin (num 18) (name DVcc) (type power_in))
+        (pin (num 19) (name XTAL1) (type passive))
+        (pin (num 20) (name XTAL2) (type passive))
+        (pin (num 21) (name Audio_L) (type input))
+        (pin (num 22) (name Audio_R) (type input))))
+    (libpart (lib device) (part C)
+      (description "Unpolarized capacitor")
+      (footprints
+        (fp C?)
+        (fp C_????_*)
+        (fp C_????)
+        (fp SMD*_c)
+        (fp Capacitor*))
+      (fields
+        (field (name Reference) C)
+        (field (name Value) C))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
+    (libpart (lib device) (part Crystal_Small)
+      (description "Two pin crystal")
+      (footprints
+        (fp Crystal_))
+      (fields
+        (field (name Reference) Y)
+        (field (name Value) Crystal_Small))
+      (pins
+        (pin (num 1) (name 1) (type passive))
+        (pin (num 2) (name 2) (type passive))))
     (libpart (lib device) (part D)
       (description Diode)
       (footprints
@@ -280,71 +351,6 @@
       (pins
         (pin (num 1) (name K) (type passive))
         (pin (num 2) (name A) (type passive))))
-    (libpart (lib ths9001) (part THS9001)
-      (fields
-        (field (name Reference) U)
-        (field (name Value) THS9001))
-      (pins
-        (pin (num 1) (name IF) (type input))
-        (pin (num 2) (name GND) (type power_in))
-        (pin (num 3) (name Vs) (type passive))
-        (pin (num 4) (name Lcol) (type passive))
-        (pin (num 5) (name IFout) (type output))
-        (pin (num 6) (name BIAS) (type input))))
-    (libpart (lib device) (part R)
-      (description Resistor)
-      (footprints
-        (fp R_*)
-        (fp Resistor_*))
-      (fields
-        (field (name Reference) R)
-        (field (name Value) R))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
-    (libpart (lib sma_edge) (part SMA_EDGE)
-      (fields
-        (field (name Reference) SMA_E)
-        (field (name Value) SMA_EDGE))
-      (pins
-        (pin (num 0) (name GND) (type passive))
-        (pin (num 1) (name SIGNAL) (type passive))
-        (pin (num 2) (name GND) (type passive))))
-    (libpart (lib conn) (part BARREL_JACK)
-      (description "DC Barrel Jack")
-      (fields
-        (field (name Reference) CON)
-        (field (name Value) BARREL_JACK))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))
-        (pin (num 3) (name ~) (type passive))))
-    (libpart (lib conn) (part CONN_01X05)
-      (footprints
-        (fp Pin_Header_Straight_1X05)
-        (fp Pin_Header_Angled_1X05)
-        (fp Socket_Strip_Straight_1X05)
-        (fp Socket_Strip_Angled_1X05))
-      (fields
-        (field (name Reference) P)
-        (field (name Value) CONN_01X05))
-      (pins
-        (pin (num 1) (name P1) (type passive))
-        (pin (num 2) (name P2) (type passive))
-        (pin (num 3) (name P3) (type passive))
-        (pin (num 4) (name P4) (type passive))
-        (pin (num 5) (name P5) (type passive))))
-    (libpart (lib conn) (part CONN_01X01)
-      (footprints
-        (fp Pin_Header_Straight_1X01)
-        (fp Pin_Header_Angled_1X01)
-        (fp Socket_Strip_Straight_1X01)
-        (fp Socket_Strip_Angled_1X01))
-      (fields
-        (field (name Reference) P)
-        (field (name Value) CONN_01X01))
-      (pins
-        (pin (num 1) (name P1) (type passive))))
     (libpart (lib device) (part INDUCTOR_SMALL)
       (fields
         (field (name Reference) L)
@@ -367,30 +373,61 @@
       (pins
         (pin (num 1) (name K) (type passive))
         (pin (num 2) (name A) (type passive))))
-    (libpart (lib device) (part Crystal_Small)
-      (description "Two pin crystal")
+    (libpart (lib device) (part R)
+      (description Resistor)
       (footprints
-        (fp Crystal_))
+        (fp R_*)
+        (fp Resistor_*))
       (fields
-        (field (name Reference) Y)
-        (field (name Value) Crystal_Small))
-      (pins
-        (pin (num 1) (name 1) (type passive))
-        (pin (num 2) (name 2) (type passive))))
-    (libpart (lib device) (part C)
-      (description "Unpolarized capacitor")
-      (footprints
-        (fp C?)
-        (fp C_????_*)
-        (fp C_????)
-        (fp SMD*_c)
-        (fp Capacitor*))
-      (fields
-        (field (name Reference) C)
-        (field (name Value) C))
+        (field (name Reference) R)
+        (field (name Value) R))
       (pins
         (pin (num 1) (name ~) (type passive))
         (pin (num 2) (name ~) (type passive))))
+    (libpart (lib device) (part TRANSFO)
+      (fields
+        (field (name Reference) T)
+        (field (name Value) TRANSFO))
+      (pins
+        (pin (num 1) (name AA) (type passive))
+        (pin (num 2) (name AB) (type passive))
+        (pin (num 3) (name SA) (type passive))
+        (pin (num 4) (name SB) (type passive))))
+    (libpart (lib conn) (part BARREL_JACK)
+      (description "DC Barrel Jack")
+      (fields
+        (field (name Reference) CON)
+        (field (name Value) BARREL_JACK))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))
+        (pin (num 3) (name ~) (type passive))))
+    (libpart (lib conn) (part CONN_01X01)
+      (footprints
+        (fp Pin_Header_Straight_1X01)
+        (fp Pin_Header_Angled_1X01)
+        (fp Socket_Strip_Straight_1X01)
+        (fp Socket_Strip_Angled_1X01))
+      (fields
+        (field (name Reference) P)
+        (field (name Value) CONN_01X01))
+      (pins
+        (pin (num 1) (name P1) (type passive))))
+    (libpart (lib conn) (part CONN_01X05)
+      (footprints
+        (fp Pin_Header_Straight_1X05)
+        (fp Pin_Header_Angled_1X05)
+        (fp Socket_Strip_Straight_1X05)
+        (fp Socket_Strip_Angled_1X05))
+      (fields
+        (field (name Reference) P)
+        (field (name Value) CONN_01X05))
+      (pins
+        (pin (num 1) (name P1) (type passive))
+        (pin (num 2) (name P2) (type passive))
+        (pin (num 3) (name P3) (type passive))
+        (pin (num 4) (name P4) (type passive))
+        (pin (num 5) (name P5) (type passive))))
     (libpart (lib regul) (part AP1117)
       (aliases
         (alias AP1117D15)
@@ -432,56 +469,20 @@
       (pins
         (pin (num 1) (name GND/ADJ) (type power_in))
         (pin (num 2) (name VO) (type power_out))
-        (pin (num 3) (name VI) (type power_in))))
-    (libpart (lib alps_603a) (part Alps_603A)
-      (fields
-        (field (name Reference) U)
-        (field (name Value) Alps_603A))
-      (pins
-        (pin (num 1) (name GND) (type power_in))
-        (pin (num 2) (name FM_Out) (type output))
-        (pin (num 3) (name GND) (type power_in))
-        (pin (num 4) (name GND) (type power_in))
-        (pin (num 5) (name GND) (type power_in))
-        (pin (num 6) (name AVcc) (type power_in))
-        (pin (num 7) (name GND) (type power_in))
-        (pin (num 8) (name GND) (type power_in))
-        (pin (num 9) (name VEX) (type power_in))
-        (pin (num 10) (name GND) (type power_in))
-        (pin (num 11) (name GND) (type power_in))
-        (pin (num 12) (name GND) (type power_in))
-        (pin (num 13) (name Data) (type input))
-        (pin (num 14) (name Clk) (type input))
-        (pin (num 15) (name Address) (type input))
-        (pin (num 16) (name RDS_Int) (type output))
-        (pin (num 17) (name F192) (type input))
-        (pin (num 18) (name DVcc) (type power_in))
-        (pin (num 19) (name XTAL1) (type passive))
-        (pin (num 20) (name XTAL2) (type passive))
-        (pin (num 21) (name Audio_L) (type input))
-        (pin (num 22) (name Audio_R) (type input))))
-    (libpart (lib device) (part TRANSFO)
-      (fields
-        (field (name Reference) T)
-        (field (name Value) TRANSFO))
-      (pins
-        (pin (num 1) (name AA) (type passive))
-        (pin (num 2) (name AB) (type passive))
-        (pin (num 3) (name SA) (type passive))
-        (pin (num 4) (name SB) (type passive)))))
+        (pin (num 3) (name VI) (type power_in)))))
   (libraries
-    (library (logical device)
-      (uri /usr/local/share/kicad/library/device.lib))
     (library (logical ths9001)
       (uri "/home/philipp/Dokumente/dev/Kefersender/UKW TX/ths9001.lib"))
     (library (logical sma_edge)
       (uri "/home/philipp/Dokumente/dev/Kefersender/UKW TX/sma_edge/sma_edge.lib"))
     (library (logical alps_603a)
       (uri "/home/philipp/Dokumente/dev/Kefersender/UKW TX/alps_603a.lib"))
-    (library (logical regul)
-      (uri /usr/local/share/kicad/library/regul.lib))
+    (library (logical device)
+      (uri /usr/local/share/kicad/library/device.lib))
     (library (logical conn)
-      (uri /usr/local/share/kicad/library/conn.lib)))
+      (uri /usr/local/share/kicad/library/conn.lib))
+    (library (logical regul)
+      (uri /usr/local/share/kicad/library/regul.lib)))
   (nets
     (net (code 1) (name "Net-(P1-Pad1)")
       (node (ref T1) (pin 2))
